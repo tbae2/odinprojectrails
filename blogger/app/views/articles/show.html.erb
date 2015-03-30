@@ -1,3 +1,16 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+
+<H3>Comments (<%= @article.comments.size %>)</H3>
+<%= render partial: 'articles/comment', collection: @article.comments %>
+
+<%= render partial: 'comments/form' %>
+
 <%= link_to "<< Back to Articles List", articles_path %>
+
+
+  <!--- fake a delete verb because all html requests are GET not delete , call delete then edit articlescontroller to understand "delete" and run destroy-->
+
+<%= link_to "delete", article_path(@article), method: :delete , data: {confirm: "Really delete the article?"}%>
+
+<%= link_to "edit", edit_article_path(@article) %>
