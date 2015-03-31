@@ -5,6 +5,12 @@
 	<%= link_to tag.name, tag_path(tag) %>
 	<% end %>
 </p>
+<p>
+<% if @article.image.exists? %><br />
+
+	<%= image_tag @article.image.url(:medium) %>
+	<% end %>
+</p>
 <p><%= @article.body %></p>
 
 <H3>Comments (<%= @article.comments.size %>)</H3>
